@@ -1,4 +1,5 @@
 # form-data-helper
+
 Javascript plug in that replaces the FormData object. Use Case: IE9 and below. 
 
 ## Code Example
@@ -13,10 +14,11 @@ formDataHelper.module.submitFormData();
 
 ## Motivation
 
-There were several plugins out there for this problem. Some were a little too robust, and others not complete enough for my liking. 
-Additionally, how the html was structured, that I had to work with was making the integration of the plugins somewhat difficult. 
-Therefore I decided to write my own plugin. This solution will optionally utilize pre-existing Form/IFrame objects 
-or dynamically generate them for you.
+There were several plugins out there for this problem. Some were a little too robust, and 
+others not complete enough for my liking. Additionally, how the html was structured, that 
+I had to work with was making the integration of the plugins somewhat difficult. Therefore 
+I decided to write my own plugin. This solution will optionally utilize pre-existing 
+FORM/IFRAME objects or dynamically generate them for you.
 
 ## Installation
 
@@ -29,21 +31,24 @@ Simply reference the JS file accordingly in your html.
 ```
 -enctype
 type: string
-description: This should reflect the encoding type of the request data, see: http://www.w3schools.com/tags/att_form_enctype.asp.
+description: This should reflect the encoding type of the request data, 
+see: http://www.w3schools.com/tags/att_form_enctype.asp.
 default: multipart/form-data.
 ```
 
 ```
 -action
 type: string
-description: This is the Iframe target property. It should be set to the endpoint of the handler/or service you are posting to.
+description: This is the Iframe target property. It should be set to the endpoint 
+of the handler/or service you are posting to.
 example: formDataHelper.module.settings.action = '/handlesrs/mytest.ashx';
 ```
 
 ```
 -method
 type: string
-description: This should reflect the method signature your action will perform. see: http://www.w3schools.com/tags/att_form_method.asp.
+description: This should reflect the method signature your action will perform. 
+see: http://www.w3schools.com/tags/att_form_method.asp.
 default: post
 ```
 
@@ -59,9 +64,12 @@ description: The id of the iframe.
 -CreateFormData function(parameters, files, createNewForm)
 type: method
 description: Creates and populates the form object.
-parameters: A json collection of the input types you want to pass in. See code example below.
-files: A collection of Input elements, type file. The files that you wish to pass along in the form request. 
-createNewForm: Boolean type. Determines if a new form should be created or a pre-existing one should be used.
+parameters: JSON object type. An array of key value pairs representing the collection of 
+input types you want to pass in. See code example.
+files: A collection of input file type elements. The files that you wish to pass along in 
+the form request. 
+createNewForm: Boolean type. Determines if a new form should be created or a pre-existing 
+one should be used.
 ```
 
 ```
@@ -75,7 +83,8 @@ callback: Method type. If you want to use a custom callback, you can pass it in 
 ```
 -iframeCallback: function (data)
 type: method
-description: The default callback method for the iframe. It's wired to the load eventhandler.
+description: The default callback method for the iframe. It's wired to the load event of
+the iframe.
 data: Response object. 
 ```
 
@@ -87,7 +96,8 @@ description: submits the form
 
 ## Tests
 
-To properly test the javascript you will need an html file, a js file, and an endpoint you can post to.
+To properly test the javascript you will need an html file, a js file, and an endpoint 
+you can post to.
 
 ###html:
 
@@ -101,14 +111,14 @@ To properly test the javascript you will need an html file, a js file, and an en
 </head>
 <body>
 
-		<div id="fileLoadDiv">
+	<div id="fileLoadDiv">
 		
-            <input id="testFile" type="file" class="file-input" name="photo" accept="image/*"/>
+        <input id="testFile" type="file" class="file-input" name="photo" accept="image/*"/>
 
         
-			<input id="targetButton" type="button" value="submit"/>
+		<input id="targetButton" type="button" value="submit"/>
 
-		</div>
+	</div>
   
 
  
@@ -119,7 +129,6 @@ To properly test the javascript you will need an html file, a js file, and an en
 ###js:
 
 ```js
-
 var main = main || {};
 
 main.core = {
