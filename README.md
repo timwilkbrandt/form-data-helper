@@ -24,47 +24,66 @@ Simply reference the JS file accordingly in your html.
 
 ## API Reference
 
-###target
-type: string
-description: this is the id of the iframe.
-
 ###Properties
+
+```
 -enctype
 type: string
-description: should reflect the encoding type of the request data, see: http://www.w3schools.com/tags/att_form_enctype.asp
-default: multipart/form-data
+description: This should reflect the encoding type of the request data, see: http://www.w3schools.com/tags/att_form_enctype.asp.
+default: multipart/form-data.
+```
 
+```
 -action
 type: string
-description: this is the Iframe target property should be set to the endpoint of the handler/or endpoint you are posting to.
+description: This is the Iframe target property. It should be set to the endpoint of the handler/or service you are posting to.
+example: formDataHelper.module.settings.action = '/handlesrs/mytest.ashx';
+```
 
+```
 -method
 type: string
-description: this should reflect the method signature your action will perform. see: http://www.w3schools.com/tags/att_form_method.asp
+description: This should reflect the method signature your action will perform. see: http://www.w3schools.com/tags/att_form_method.asp.
 default: post
+```
+
+```
+-target
+type: string
+description: The id of the iframe.
+```
 
 ###Methods
+
+```
 -CreateFormData function(parameters, files, createNewForm)
 type: method
 description: Creates and populates the form object.
-parameters: a json collection of the input types you want to pass it. See code example below.
-files: the files that you wish to pass along in the form request. 
-createNewForm: a bool type. Determines if a new form should be created or a pre-existing one should be used.
+parameters: A json collection of the input types you want to pass in. See code example below.
+files: A collection of Input elements, type file. The files that you wish to pass along in the form request. 
+createNewForm: Boolean type. Determines if a new form should be created or a pre-existing one should be used.
+```
 
+```
 -createIframe: function (frameId, callback)
 type: method
 description: Creates the iframe object.
-frameId: the id of the iframe. Should match the target property value.
-callback: if you want to use a custom callback, you would pass it in here.
+frameId: String type. The id of the iframe. Should match the target property value.
+callback: Method type. If you want to use a custom callback, you can pass it in here.
+```
 
+```
 -iframeCallback: function (data)
 type: method
-description: the default callback method for the iframe. It's wired to the load eventhandler.
-data: response object.
+description: The default callback method for the iframe. It's wired to the load eventhandler.
+data: Response object. 
+```
 
+```
 -submitFormData()
 type: method
 description: submits the form
+```
 
 ## Tests
 
